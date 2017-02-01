@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.PriorityQueue;
 
 public class AirCraftFunctions {
-	public int position = 0;
+	static int position = 0;
 	static PriorityQueue<AirCraft> acQueue = new PriorityQueue<AirCraft>(10, new Comparator<AirCraft>() {
 		@Override
 		public int compare(AirCraft o1, AirCraft o2) {
@@ -24,10 +24,10 @@ public class AirCraftFunctions {
 		}
 	});
 
-	static HashMap<AirCraft, Integer> positionMap;
+	static HashMap<AirCraft, Integer> positionMap = new HashMap<AirCraft, Integer>();
 
 	// O(log(n)) time.
-	public void enqueue(AirCraft ac) {
+	public static void enqueue(AirCraft ac) {
 		acQueue.add(ac);
 		position++;
 		positionMap.put(ac, position);
@@ -38,13 +38,10 @@ public class AirCraftFunctions {
 		if (!acQueue.isEmpty()) {
 			AirCraft obj = acQueue.poll();
 			positionMap.remove(obj);
-			int pos = 0;
-			Iterator<Integer> i = positionMap.values().iterator();
+			Iterator<AirCraft> i = positionMap.keySet().iterator();
 			while (i.hasNext()) {
-				pos = i.next();
-				pos--;
+				positionMap.put((AirCraft) i, positionMap.get(i).intValue() - 1);
 			}
-			
 			return obj;
 		}
 		return null;
@@ -61,44 +58,11 @@ public class AirCraftFunctions {
 		Iterator<AirCraft> i = positionMap.keySet().iterator();
 		while (i.hasNext()) {
 			if (i.next().getName().equals(carrierName)) {
-				obj.put((AirCraft) i, positionMap.get(i));
+				obj.put( (AirCraft) i, positionMap.get(i));
 			}
 		}
 		return obj;
 
 	}
 
-	public static void main(String[] args) {
-		AirCraft air = new AirCraft(010, "Air", "PASSENGER", "LARGE");
-		AirCraft cathay = new AirCraft(020, "cathay", "CARGO", "SMALL");
-		AirCraft air1 = new AirCraft(011, "Air", "PASSENGER", "SMALL");
-		AirCraft air2 = new AirCraft(015, "Air", "CARGO", "LARGE");
-		AirCraft eti = new AirCraft(010, "Eti", "PASSENGER", "LARGE");
-		AirCraft eti1 = new AirCraft(010, "Eti", "CARGO", "LARGE");
-		enqueue(air);
-		enqueue(cathay);
-		enqueue(air1);
-		enqueue(air2);
-		enqueue(eti);
-		enqueue(eti1);
-		System.out.println("air1" + returnPostion(air1));
-		System.out.println("air" + returnPostion(air));
-		System.out.println("cathay" + returnPostion(cathay));
-		System.out.println("air2" + returnPostion(air2));
-		System.out.println("eti" + returnPostion(eti));
-		System.out.println(returnList("Air"));
-		dequeue(air);
-		dequeue(cathay);
-		System.out.println("air1" + returnPostion(air1));
-		System.out.println("air" + returnPostion(air));
-		System.out.println("cathay" + returnPostion(cathay));
-		System.out.println("air2" + returnPostion(air2));
-		System.out.println("eti" + returnPostion(eti));
-		System.out.println(returnList("air"));
-		dequeue(air1);
-		dequeue(eti);
-		dequeue(eti1);
-		dequeue(air2);
-
-	}
 }
