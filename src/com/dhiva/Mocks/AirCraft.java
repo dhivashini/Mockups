@@ -1,5 +1,7 @@
 package com.dhiva.Mocks;
 
+//http://javarevisited.blogspot.com/2011/08/enum-in-java-example-tutorial.html
+
 public class AirCraft {
 	int id;
 	String carrierName;
@@ -24,11 +26,29 @@ public class AirCraft {
 		}
 	}
 
-	AirCraft(int id, String carrierName, Type type, Size size) {
+	public AirCraft(int id, String carrierName, String type, String size) {
 		this.id = id;
 		this.carrierName = carrierName;
-		this.type = type;
-		this.size = size;
+		setType(type);
+		setSize(size);
+	}
+
+	private void setSize(String size) {
+		for (Size b : Size.values()) {
+			if (size.equalsIgnoreCase(b.size)) {
+				this.size = b;
+
+			}
+		}
+	}
+
+	private void setType(String type) {
+		for (Type b : Type.values()) {
+			if (type.equalsIgnoreCase(b.type)) {
+				this.type = b;
+
+			}
+		}
 	}
 
 	public String getType() {
