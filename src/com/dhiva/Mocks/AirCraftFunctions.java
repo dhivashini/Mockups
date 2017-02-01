@@ -2,8 +2,9 @@ package com.dhiva.Mocks;
 
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.PriorityQueue;
+
+import com.dhiva.Mocks.AirCraft;
 
 public class AirCraftFunctions {
 	static int position = 0;
@@ -38,10 +39,8 @@ public class AirCraftFunctions {
 		if (!acQueue.isEmpty()) {
 			AirCraft obj = acQueue.poll();
 			positionMap.remove(obj);
-			Iterator<AirCraft> i = positionMap.keySet().iterator();
-			while (i.hasNext()) {
-				positionMap.put((AirCraft) i, positionMap.get(i).intValue() - 1);
-			}
+			for (AirCraft i : positionMap.keySet())
+				positionMap.put(i, positionMap.get(i).intValue() - 1);
 			return obj;
 		}
 		return null;
@@ -55,12 +54,8 @@ public class AirCraftFunctions {
 	// o(n) since the iterator iterates over all the keys in the positionMap.
 	public static HashMap<AirCraft, Integer> returnList(String carrierName) {
 		HashMap<AirCraft, Integer> obj = new HashMap<AirCraft, Integer>();
-		Iterator<AirCraft> i = positionMap.keySet().iterator();
-		while (i.hasNext()) {
-			if (i.next().getName().equals(carrierName)) {
-				obj.put( (AirCraft) i, positionMap.get(i));
-			}
-		}
+		for (AirCraft i : positionMap.keySet())
+			obj.put(i, positionMap.get(i));
 		return obj;
 
 	}

@@ -24,7 +24,7 @@ public class AirCraftTest {
 		AirCraftFunctions.dequeue(air);
 		System.out.println("air1" + AirCraftFunctions.returnPostion(air1));
 		System.out.println("air" + AirCraftFunctions.returnPostion(air));
-		System.out.println("cathay" + AirCraftFunctions.returnPostion(cathay));
+		//System.out.println("cathay" + AirCraftFunctions.returnPostion(cathay));
 		System.out.println("air2" + AirCraftFunctions.returnPostion(air2));
 		System.out.println("eti" + AirCraftFunctions.returnPostion(eti));
 		System.out.println("eti1" + AirCraftFunctions.returnPostion(eti1));
