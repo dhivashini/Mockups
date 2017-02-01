@@ -48,7 +48,10 @@ public class AirCraftFunctions {
 
 	// o(1) time.
 	public static int returnPostion(AirCraft ac) {
-		return positionMap.get(ac);
+		for (AirCraft i : positionMap.keySet())
+			if(i==ac)
+				return positionMap.get(i);
+		return 0;
 	}
 
 	// o(n) since the iterator iterates over all the keys in the positionMap.
