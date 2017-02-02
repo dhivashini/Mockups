@@ -9,19 +9,25 @@ import com.dhiva.Mocks.AirCraft;
 public class AirCraftFunctions {
 	static int position = 0;
 	static PriorityQueue<AirCraft> acQueue = new PriorityQueue<AirCraft>(10, new Comparator<AirCraft>() {
+//		@Override
+//		public int compare(AirCraft o1, AirCraft o2) {
+//			if (o1.getType() == "PASSENGER") {
+//				return 1;
+//			} else if (o1.type == o2.type) {
+//				if (o1.getSize() == "LARGE") {
+//					return 1;
+//				}
+//				if (o1.size == o2.size)
+//					return 0;
+//				return -1;
+//			} else
+//			return -1;
+//		}
 		@Override
-		public int compare(AirCraft o1, AirCraft o2) {
-			if (o1.getType() == "PASSENGER") {
-				return 1;
-			} else if (o1.type == o2.type) {
-				if (o1.getSize() == "LARGE") {
-					return 1;
-				}
-				if (o1.size == o2.size)
-					return 0;
-				return -1;
-			}
-			return -1;
+		public int compare(AirCraft o1, AirCraft o2){
+			int o1Value = o1.type.getType()+o1.size.getSize();
+			int o2Value = o2.type.getType()+o2.size.getSize();
+			return o1Value-o2Value;
 		}
 	});
 

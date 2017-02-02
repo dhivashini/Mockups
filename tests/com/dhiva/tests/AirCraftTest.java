@@ -21,7 +21,7 @@ public class AirCraftTest {
 		AirCraftFunctions.enqueue(air2);
 		AirCraftFunctions.enqueue(air1);
 		AirCraftFunctions.enqueue(eti2);
-		//AirCraftFunctions.enqueue(air);
+		AirCraftFunctions.enqueue(air);
 		AirCraftFunctions.enqueue(eti);	
 		
 		System.out.println("After position air----");
