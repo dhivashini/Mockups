@@ -11,18 +11,18 @@ public class AirCraftTest {
 
 	@Test
 	public void test() {
-		AirCraft air = new AirCraft(010, "Air", "PASSENGER", "LARGE");
-		AirCraft air1 = new AirCraft(011, "Air", "PASSENGER", "SMALL");
-		AirCraft air2 = new AirCraft(015, "Air", "CARGO", "LARGE");
-		AirCraft eti = new AirCraft(017, "Eti", "PASSENGER", "LARGE");
-		AirCraft eti1 = new AirCraft(016, "Eti", "CARGO", "LARGE");
-		AirCraft eti2 = new AirCraft(11, "Eti", "CARGO", "SMALL");
-		AirCraftFunctions.enqueue(air);
-		AirCraftFunctions.enqueue(eti);		
+		AirCraft air = new AirCraft(01, "Air", "PASSENGER", "LARGE");
+		AirCraft air1 = new AirCraft(02, "Air", "PASSENGER", "SMALL");
+		AirCraft air2 = new AirCraft(05, "Air", "CARGO", "LARGE");
+		AirCraft eti = new AirCraft(07, "Eti", "PASSENGER", "LARGE");
+		AirCraft eti1 = new AirCraft(06, "Eti", "CARGO", "LARGE");
+		AirCraft eti2 = new AirCraft(11, "Eti", "CARGO", "SMALL");	
 		AirCraftFunctions.enqueue(eti1);
 		AirCraftFunctions.enqueue(air2);
 		AirCraftFunctions.enqueue(air1);
 		AirCraftFunctions.enqueue(eti2);
+		//AirCraftFunctions.enqueue(air);
+		AirCraftFunctions.enqueue(eti);	
 		
 		System.out.println("After position air----");
 		System.out.println("air1-" + AirCraftFunctions.returnPostion(air1));

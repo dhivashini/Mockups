@@ -1,10 +1,15 @@
 package com.dhiva.Mocks;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 public class NAryTree {
 	class TreeNode{
 	     ArrayList<TreeNode> list = new ArrayList<TreeNode>();
 	     String data;
-	     TreeNode(int data, int childCount){
+	     TreeNode(String data, int childCount){
 	         this.data = data;
 	         while(childCount>0){
 	             TreeNode n = null;
@@ -20,10 +25,14 @@ public class NAryTree {
 	 
 	 // whats the run time of this algorithm ?
 	 //run-time : O(mn), m is the number of keys, n is the number of values.
-	 
+	Set<String> allValue = new HashSet<String>();
+    for(Set<String> c : tree_representation.values()){
+    	allValue.addAll(c);
+    }
+//o(m+n)
 	 for(String s : tree_representation.keySet()){ 
-	         for(Set<String> current : tree_representation.values()){
-	              if(!current.contains(s)){
+	        // for(Set<String> current : tree_representation.values()){
+	              if(!allValue.contains(s)){
 	                  TreeNode n = new TreeNode(s,tree_representation.get(s).size()); 
 	                  // ? please return the root node for the whole tree. your current root node has only one level. its just a dummy
 	                  // if you are returning a root node, i should be able to traverse the whole tree with that.
