@@ -16,37 +16,51 @@ public class AirCraftTest {
 		AirCraft air2 = new AirCraft(015, "Air", "CARGO", "LARGE");
 		AirCraft eti = new AirCraft(017, "Eti", "PASSENGER", "LARGE");
 		AirCraft eti1 = new AirCraft(016, "Eti", "CARGO", "LARGE");
-		AirCraft turk = new AirCraft(000, "Emirates", "CARGO", "SMALL" );
+		AirCraft eti2 = new AirCraft(11, "Eti", "CARGO", "SMALL");
 		AirCraftFunctions.enqueue(air);
 		AirCraftFunctions.enqueue(eti);		
 		AirCraftFunctions.enqueue(eti1);
 		AirCraftFunctions.enqueue(air2);
-		AirCraftFunctions.enqueue(turk);
 		AirCraftFunctions.enqueue(air1);
-		AirCraftFunctions.dequeue(air);
-		System.out.println("air1" + AirCraftFunctions.returnPostion(air1));
-		System.out.println("air" + AirCraftFunctions.returnPostion(air));
-		System.out.println("air2" + AirCraftFunctions.returnPostion(air2));
-		System.out.println("turk" + AirCraftFunctions.returnPostion(turk));
-		System.out.println("eti" + AirCraftFunctions.returnPostion(eti));
-		System.out.println("eti1" + AirCraftFunctions.returnPostion(eti1));
+		AirCraftFunctions.enqueue(eti2);
+		
+		System.out.println("After position air----");
+		System.out.println("air1-" + AirCraftFunctions.returnPostion(air1));
+		System.out.println("air-" + AirCraftFunctions.returnPostion(air));
+		System.out.println("air2-" + AirCraftFunctions.returnPostion(air2));
+		System.out.println("eti-" + AirCraftFunctions.returnPostion(eti));
+		System.out.println("eti1-" + AirCraftFunctions.returnPostion(eti1));
+		System.out.println("eti2-" + AirCraftFunctions.returnPostion(eti2));
+
+		System.out.println("After list----");
 		HashMap<AirCraft,Integer> obj = AirCraftFunctions.returnList("Air");
 		for(AirCraft i :obj.keySet()){
 			System.out.println(i.getName()+"-"+obj.get(i));
 		}
 		
-		//AirCraftFunctions.dequeue(turk);
-		System.out.println("air1" + AirCraftFunctions.returnPostion(air1));
-		System.out.println("air" + AirCraftFunctions.returnPostion(air));
-		System.out.println("air2" + AirCraftFunctions.returnPostion(air2));
-		System.out.println("eti" + AirCraftFunctions.returnPostion(eti));
+		AirCraftFunctions.dequeue();
+		System.out.println("After dequeue ----");	
+		System.out.println("air1-" + AirCraftFunctions.returnPostion(air1));
+		System.out.println("air-" + AirCraftFunctions.returnPostion(air));
+		System.out.println("air2-" + AirCraftFunctions.returnPostion(air2));
+		System.out.println("eti2-" + AirCraftFunctions.returnPostion(eti2));
+		System.out.println("eti-" + AirCraftFunctions.returnPostion(eti));
+		System.out.println("eti1-" + AirCraftFunctions.returnPostion(eti1));
+
+		System.out.println("After list---");
 		HashMap<AirCraft,Integer> obj1 = AirCraftFunctions.returnList("Air");
-		for(AirCraft i :obj.keySet()){
+		for(AirCraft i :obj1.keySet()){
 			System.out.println(i.getName()+"-"+obj1.get(i));
 		}
-		AirCraftFunctions.dequeue(air1);
-		AirCraftFunctions.dequeue(eti);
-		AirCraftFunctions.dequeue(eti1);
-		AirCraftFunctions.dequeue(air2);
+		AirCraftFunctions.dequeue();
+		AirCraftFunctions.dequeue();
+		AirCraftFunctions.dequeue();
+		AirCraftFunctions.dequeue();
+		AirCraftFunctions.dequeue();
+		System.out.println("After dequeue all----");
+		HashMap<AirCraft,Integer> obj2 = AirCraftFunctions.returnList("Air");
+		for(AirCraft i :obj2.keySet()){
+			System.out.println(i.getName()+"-"+obj2.get(i));
+		}
 	}
 }

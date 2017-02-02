@@ -30,12 +30,12 @@ public class AirCraftFunctions {
 	// O(log(n)) time.
 	public static void enqueue(AirCraft ac) {
 		acQueue.add(ac);
-		position++;
+		position = position +1;
 		positionMap.put(ac, position);
 	}
 
 	// o(n) time. To update the position value in positionMap.
-	public static AirCraft dequeue(AirCraft ac) {
+	public static AirCraft dequeue() {
 		if (!acQueue.isEmpty()) {
 			AirCraft obj = acQueue.poll();
 			positionMap.remove(obj);
@@ -48,17 +48,20 @@ public class AirCraftFunctions {
 
 	// o(1) time.
 	public static int returnPostion(AirCraft ac) {
-		for (AirCraft i : positionMap.keySet())
-			if(i==ac)
+		for (AirCraft i : positionMap.keySet()){
+			if(i.equals(ac))
 				return positionMap.get(i);
-		return 0;
+		}
+		return 0;		
 	}
 
 	// o(n) since the iterator iterates over all the keys in the positionMap.
 	public static HashMap<AirCraft, Integer> returnList(String carrierName) {
 		HashMap<AirCraft, Integer> obj = new HashMap<AirCraft, Integer>();
-		for (AirCraft i : positionMap.keySet())
-			obj.put(i, positionMap.get(i));
+		for (AirCraft i : positionMap.keySet()){
+			if(i.carrierName == carrierName)
+				obj.put(i, positionMap.get(i));
+		}
 		return obj;
 
 	}
