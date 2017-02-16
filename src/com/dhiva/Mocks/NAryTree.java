@@ -49,8 +49,8 @@ public class NAryTree {
 	    Set<String> setObj = tree_representation.get(n.data);
 	    for(String s : setObj){
 	        TreeNode current = new TreeNode(s);
-	        n.add(current);
-	        createCompleteTree (Map<String, Set<String>> tree_representation, TreeNode n);       
+	        n.list.add(current);
+	        createCompleteTree (Map<String, Set<String>> tree_representation, TreeNode current);       
 	    }    
 	}
 	/*
